@@ -21,8 +21,8 @@ public class CarServiceImp implements CarService{
 
         if (count < 0){
             count = 0;
-        } else if (count > 5) {
-            count = 5;
+        } else if (count > cars.size()) {
+            count = cars.size();
         }
         return cars.subList(0, count);
     }
