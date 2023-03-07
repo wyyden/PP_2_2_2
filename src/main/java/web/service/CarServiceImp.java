@@ -10,19 +10,21 @@ import java.util.List;
 @Component
 public class CarServiceImp implements CarService{
     List<Car> cars = new ArrayList<>();
-
-    @Override
-    public List<Car> getCarList(int count) {
+    {
         cars.add(new Car("Bmv", "5 series", "E34"));
         cars.add(new Car("Bmv", "5 series", "E39"));
         cars.add(new Car("Bmv", "5 series", "E60/E61"));
         cars.add(new Car("Bmv", "3 series", "E36"));
         cars.add(new Car("Bmv", "3 series", "E46"));
+    }
+
+    @Override
+    public List<Car> getCarList(int count) {
 
         if (count < 0){
-            count = 0;
+            return cars;
         } else if (count > cars.size()) {
-            count = cars.size();
+            return cars;
         }
         return cars.subList(0, count);
     }
